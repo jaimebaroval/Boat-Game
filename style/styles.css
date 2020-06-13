@@ -1,0 +1,62 @@
+canvas {
+    border: 1px solid #ccc;
+    background: rgba(183, 222, 237, 1);
+    background: -moz-linear-gradient(top, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 71%, rgba(33, 180, 226, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(183, 222, 237, 1)), color-stop(71%, rgba(113, 206, 239, 1)), color-stop(100%, rgba(33, 180, 226, 1)));
+    background: -webkit-linear-gradient(top, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 71%, rgba(33, 180, 226, 1) 100%);
+    background: -o-linear-gradient(top, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 71%, rgba(33, 180, 226, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 71%, rgba(33, 180, 226, 1) 100%);
+    background: linear-gradient(to bottom, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 71%, rgba(33, 180, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7deed', endColorstr='#21b4e2', GradientType=0);
+}
+
+.game-container {
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-dialog {
+    width: 489px;
+}
+
+.modal-footer {
+    justify-content: center;
+    background-color: #87E2F4;
+    border: none;
+}
+
+.btn-primary {
+    /* background-color: #2EC3F9;
+    border: 2px solid #4dcdfc; */
+}
+
+.score {
+    position: absolute;
+    font-size: 151px;
+    opacity: 50%;
+    margin-top: -100px;
+}
+
+#score-modal {
+    margin-top: 10px;
+}
+
+.score-list {
+    font-size: 20px;
+    color: white;
+}
+
+.score-pos {
+    font-size: 40px;
+    color: rgb(255, 204, 0);
+    margin-bottom: 0;
+}
+
+/* #overModal {
+    display: none
+} */

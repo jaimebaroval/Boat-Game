@@ -10,6 +10,10 @@ class Game {
 
         this.score = 0
 
+        this.startMusic = new Audio('http://blauquark.com/boat-game/audio/game-pokemon.mp3')
+        this.gameOver = new Audio('http://blauquark.com/boat-game/audio/gameover.mp3')
+        this.onBoat = new Audio('http://blauquark.com/boat-game/audio/safe.mp3')
+
 
 
         this.safeParachutes = []
@@ -17,6 +21,10 @@ class Game {
     }
 
     start() {
+        this.gameOver.pause()
+        this.startMusic.play()
+        this.startMusic.loop = true
+
         this._intervalId = setInterval(() => {
             this._clear()
             this._draw()
@@ -29,7 +37,6 @@ class Game {
         this.background.draw()
         this.boat.draw()
         this.plane.draw(this.score)
-        // this.parachute.draw(this.plane.planePosition())
 
     }
 
@@ -40,7 +47,6 @@ class Game {
     _move() {
         this.boat.move()
         this.plane.move()
-        // this.parachute.move()
     }
 
     _safeParachute() {
@@ -49,19 +55,14 @@ class Game {
 
         if (this._isOnBoat()) {
             this.score++
+            this.onBoat.pause()
+            this.onBoat.play()
             safeParachutes.clearSafeParachutes()
             scoreCount.innerText = this.score
-            // return true
         } else {
             safeParachutes.clearParachutes()
-            // if (this.plane.gameOver()) {
-            // if (this.plane.gameOver()) {
             this._gameOver()
-            // }
-            // }
         }
-        console.log(this.score);
-
 
     }
 
@@ -71,22 +72,17 @@ class Game {
 
     }
 
-    // _putArray(parachute) {
-    //     if (parachute.safePar) {
-    //         this.safeParachutes.push(parachute)
-    //     }
-    //     this.safeParachutes.filter((item, index) => {
-    //         // console.log(item, index, this.safeParachutes.indexOf(item), this.safeParachutes.indexOf(item) === index)
-    //         return this.safeParachutes.indexOf(item) === index
-    //     })
-    // }
+    _musicOn() {
+        this.startMusic.play()
+    }
 
     _gameOver() {
         const gameOver = this.plane.gameOver()
-        // console.log(this.plane.gameOver());
 
         if (gameOver.gameOver()) {
             clearInterval(this._intervalId)
+            this.startMusic.pause()
+            this.gameOver.play()
             const modalBody = document.getElementById('modal-body')
             const imgModal = document.getElementById('img-modal')
             const buttonRestart = document.getElementById('modal-footer')
@@ -102,10 +98,12 @@ class Game {
 
             if (this.score != 0) {
                 bestScores.push(this.score)
+                // bestScores.filter((item, index) => bestScores.indexOf(item) !== index)
                 localStorage.setItem("score", JSON.stringify(this.bestScores));
             }
 
             document.getElementById('restart').onclick = () => {
+                this.gameOver.pause()
                 onLoad()
             };
 

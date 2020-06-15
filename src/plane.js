@@ -21,6 +21,8 @@ class Plane {
         this.img.frames = 4
 
         this.brigade = new Brigade(ctx)
+
+
     }
 
     draw(score) {
@@ -40,7 +42,6 @@ class Plane {
 
         // this.brigade.clearParachutes()
         this.brigade.draw(this._x, score)
-
     }
 
     move() {

@@ -11,6 +11,9 @@ class Brigade {
         this.gameOverTest = false
 
         this.parachutesPosition()
+
+        this.jump = new Audio('http://blauquark.com/boat-game/audio/jump.mp3')
+
     }
 
     draw(planePos, score) {
@@ -20,7 +23,7 @@ class Brigade {
 
             if (Number(this.planePosition) === e) {
                 this.parachutesArray.push(new Parachute(this._ctx, this.planePosition))
-                console.log(this.parachutesArray)
+                this.jump.play()
 
             }
 

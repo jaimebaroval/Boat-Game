@@ -23,6 +23,8 @@ class Parachute {
 
 
 
+
+
         this.vy = Math.random() * (2 - 1.2) + 1.2
     }
 
@@ -32,19 +34,6 @@ class Parachute {
             this._ctx.drawImage(
                 this._img,
                 this._img.frameIndex * this._paraW,
-                0,
-                this._paraW,
-                this._paraH,
-                this.x,
-                this.y - 70,
-                this._paraW,
-                this._paraH
-            )
-        }
-        if (level === 2) {
-            this._ctx.drawImage(
-                this._imgL2,
-                this._imgL2.frameIndex * this._paraW,
                 0,
                 this._paraW,
                 this._paraH,
@@ -87,6 +76,8 @@ class Parachute {
     }
 
     aninmateSprite() {
+
+
 
         if (this.y > 0) {
             this._img.frameIndex = 1

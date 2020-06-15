@@ -1,12 +1,25 @@
 let bestScores = []
+const intro = new Audio('http://blauquark.com/boat-game/audio/start-pokemon.mp3')
 
 window.onload = () => {
+
+
+
+    // const audio = document.getElementById('audio')
+
+    intro.play()
 
     $('#exampleModal').modal('show');
 
     document.getElementById('start-button').onclick = () => {
         onLoad()
     };
+
+    document.getElementById('music-on').onclick = () => {
+        intro.play()
+    };
+
+
 }
 
 function onLoad() {
@@ -25,6 +38,7 @@ function onLoad() {
 
     const game = new Game(ctx)
 
+    intro.pause()
     game.start()
 
 
